@@ -1,41 +1,42 @@
 import React from 'react';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import { StyleSheet, View } from 'react-native';
+import { Point, points } from './screen/cityselect';
 
-export default function App({ points }:{
-points:any
+export default function App({  }:{
+// points:object[]
 }) {
-  return (
-  
-    <MapView
-      style={styles.map}
-      initialRegion={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
+  console.log(points)
+  return ( 
+  <MapView
+  style={styles.map}
+  initialRegion={{
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  }}
+  >
+  {points.map((point: Point) => (
+    <Marker
+      key={point.id}
+      coordinate={{
+        latitude: point.latitude,
+        longitude: point.longitude,
       }}
-    >
-      {points.map((point: { id: React.Key | null | undefined; latitude: any; longitude: any; title: string | undefined; description: string | undefined; }) => (
-        <Marker
-          key={point.id}
-          coordinate={{
-            latitude: point.latitude,
-            longitude: point.longitude,
-          }}
-          title={point.title}
-          description={point.description}
-        />
-      ))}
-      <Polyline
-        coordinates={points.map((point: { latitude: any; longitude: any; }) => ({
-            latitude: point.latitude,
-            longitude: point.longitude
-        }))}
-        strokeColor="#000"
-        strokeWidth={3}
-      />
-    </MapView>
+      title={point.title}
+      description={point.description}
+    />
+  ))}
+  <Polyline
+    coordinates={points.map((point: { latitude: any; longitude: any; }) => ({
+        latitude: point.latitude,
+        longitude: point.longitude
+    }))}
+    strokeColor="#000"
+    strokeWidth={3}
+  />
+  </MapView>
   );
 }
 

@@ -2,42 +2,23 @@ import MapView, { Marker, Polyline } from 'react-native-maps';
 import { View, Text } from 'react-native';
 import { MapViewProps } from 'react-native-maps';
 
-interface Point {
+export class Point {
     id: number;
     title: string;
     description: string;
     latitude: number;
     longitude: number;
+
+    constructor(id:number, title:string, description:string, latitude:number, longitude:number){
+        this.id = id,
+        this.title = title,
+        this.description = description
+        this.latitude = latitude,
+        this.longitude = longitude    
+    }
 }
 
-interface Props {
-    points: Point[];
-}
-
-const MapWithPoints: React.FC<Props & MapViewProps> = ({ points, ...props }) => {
-    return (
-        <MapView {...props}>
-            {points.map((point) => (
-                <Marker
-                    key={point.id}
-                    coordinate={{
-                        latitude: point.latitude,
-                        longitude: point.longitude,
-                    }}
-                    title={point.title}
-                    description={point.description}
-                />
-            ))}
-            <Polyline
-            coordinates={points.map((point) => ({
-                latitude: point.latitude,
-                longitude: point.longitude
-            }))}
-            strokeColor="#000"
-            strokeWidth={3}
-        />
-    </MapView>
-);
-};
-
-export default MapWithPoints;
+const point1 = new Point(1, 'toto', 'tata',37.78825,-122.4324)
+const point2 = new Point(2, 'titi', 'tata',36.78825,-122.4350)
+const point3 = new Point(2, 'titi', 'tata',37.78825,-120.4350)
+export const points = [point1, point2, point3];
