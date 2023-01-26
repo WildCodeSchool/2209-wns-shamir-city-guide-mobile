@@ -1,20 +1,50 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import MapView, { Marker, Polyline } from 'react-native-maps';
+import { StyleSheet, View } from 'react-native';
 
-export default function App() {
+export default function App({ points }:{
+points:any
+}) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  
+    <MapView
+      style={styles.map}
+      initialRegion={{
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      }}
+    >
+      {points.map((point: { id: React.Key | null | undefined; latitude: any; longitude: any; title: string | undefined; description: string | undefined; }) => (
+        <Marker
+          key={point.id}
+          coordinate={{
+            latitude: point.latitude,
+            longitude: point.longitude,
+          }}
+          title={point.title}
+          description={point.description}
+        />
+      ))}
+      <Polyline
+        coordinates={points.map((point: { latitude: any; longitude: any; }) => ({
+            latitude: point.latitude,
+            longitude: point.longitude
+        }))}
+        strokeColor="#000"
+        strokeWidth={3}
+      />
+    </MapView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  map: {
+    width: '100%',
+    height: '100%',
   },
 });
