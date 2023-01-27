@@ -1,49 +1,19 @@
-import React from 'react';
-import MapView, { Marker, Polyline } from 'react-native-maps';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput } from 'react-native';
 
-export default function Test({ points }:{
-points:any
-}) {
+const SearchBar = () => {
+  const [search, setSearch] = useState('');
+
   return (
-  <MapView
-style={styles.map}
-initialRegion={{
-  latitude: 37.78825,
-  longitude: -122.4324,
-  latitudeDelta: 0.0922,
-  longitudeDelta: 0.0421,
-}}
->
-{points.map((point: { id: React.Key | null | undefined; latitude: any; longitude: any; title: string | undefined; description: string | undefined; }) => (
-  <Marker
-    key={point.id}
-    coordinate={{
-      latitude: point.latitude,
-      longitude: point.longitude,
-    }}
-    title={point.title}
-    description={point.description}
-  />
-))}
-<Polyline
-  coordinates={points.map((point: { latitude: any; longitude: any; }) => ({
-      latitude: point.latitude,
-      longitude: point.longitude
-  }))}
-  strokeColor="#000"
-  strokeWidth={3}
-/>
-</MapView>
- );
-}
+    <View>
+      <TextInput
+        placeholder="Rechercher une adresse"
+        value={search}
+        onChangeText={text => setSearch(text)}
+        style={{ borderWidth: 1, padding: 10, margin: 10 }}
+      />
+    </View>
+  );
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  map: {
-    width: '100%',
-    height: '100%',
-  },
-});
+export default SearchBar;
