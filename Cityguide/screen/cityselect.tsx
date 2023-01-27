@@ -1,6 +1,3 @@
-import MapView, { Marker, Polyline } from 'react-native-maps';
-import { View, Text } from 'react-native';
-import { MapViewProps } from 'react-native-maps';
 
 export class Point {
     id: number;
