@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MapView, { Marker, Polyline } from 'react-native-maps';
-import { StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native';
 import { Point, points } from './screen/cityselect';
+import { TextInput } from 'react-native';
 
 export default function App() {
+  const [searchTerm, setSearchTerm] = useState('');
   return ( 
+    <View style={{paddingTop: StatusBar.currentHeight}}>
+      <TextInput
+        value={searchTerm}
+        onChangeText={setSearchTerm}
+        placeholder="Recherchez une adresse"
+      />
     <MapView
       style={styles.map}
       initialRegion={{
@@ -16,14 +24,14 @@ export default function App() {
     >
         {points.map((point: Point) => (
           <Marker
-            key={point.id}
-            coordinate={{
-              latitude: point.latitude,
-              longitude: point.longitude,
-            }}
-            title={point.title}
-            description={point.description} />
-        ))}
+          key={point.id}
+          coordinate={{
+            latitude: point.latitude,
+            longitude: point.longitude,
+          }}
+          title={point.title}
+          description={point.description} />
+          ))}
         <Polyline
           coordinates={points.map((point: { latitude: any; longitude: any; }) => ({
             latitude: point.latitude,
@@ -32,6 +40,7 @@ export default function App() {
           strokeColor="#000"
           strokeWidth={3} />
       </MapView>
+      </View>
   );
 }
 
