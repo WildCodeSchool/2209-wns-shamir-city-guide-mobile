@@ -7,9 +7,9 @@ import GooglePlacesInput from "./searchbar";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
-  return ( 
+  return (
+
     <View style={{paddingTop: StatusBar.currentHeight}}>
-        <GooglePlacesInput></GooglePlacesInput>
     <MapView
       style={styles.map}
       initialRegion={{
