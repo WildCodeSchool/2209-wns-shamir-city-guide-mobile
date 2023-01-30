@@ -1,15 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import MapView, { Marker, Polyline } from 'react-native-maps';
 import { StatusBar, StyleSheet, View } from 'react-native';
 import { Point, points } from './cityselect';
-import { TextInput } from 'react-native';
 import GooglePlacesInput from "./searchbar";
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState('');
   return ( 
-    <View style={{paddingTop: StatusBar.currentHeight}}>
-        <GooglePlacesInput></GooglePlacesInput>
+    <View style={{paddingTop: 40}}>
+        <GooglePlacesInput />
     <MapView
       style={styles.map}
       initialRegion={{

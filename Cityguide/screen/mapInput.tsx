@@ -5,7 +5,7 @@ interface Props {
 notifyChange: (location: {lat: number, lng: number}) => void;
 }
 
-const MapInput: React.FC<Props> = (props) => {
+const MapInput: React.FC<Props> = (props: any) => {
 return (
 <GooglePlacesAutocomplete
 placeholder='Search'

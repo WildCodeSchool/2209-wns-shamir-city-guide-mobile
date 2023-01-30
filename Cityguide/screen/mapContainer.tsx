@@ -28,7 +28,7 @@ class MapContainer extends React.Component<{}, State> {
   }
 
   getInitialState = async () => {
-    const data = await getLocation();
+    const data: any = await getLocation();
     this.setState({
       region: {
         latitude: data.latitude,
