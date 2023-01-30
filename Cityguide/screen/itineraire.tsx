@@ -2,9 +2,9 @@ import React from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
-const GOOGLE_MAPS_APIKEY = 'YAIzaSyD8kaYmqkEw9DMhpbtqnIe9Qk7PCQSb3R4';
+const GOOGLE_MAPS_APIKEY = 'AIzaSyD8kaYmqkEw9DMhpbtqnIe9Qk7PCQSb3R4';
 
-const itineraire = () => {
+const Itineraire = () => {
   const region = {
     latitude: 47.21829365748452,
     longitude: -1.5522667227281854,
@@ -33,7 +33,7 @@ const itineraire = () => {
   );
 };
 
-export default itineraire;
+export default Itineraire;
 
 
 
