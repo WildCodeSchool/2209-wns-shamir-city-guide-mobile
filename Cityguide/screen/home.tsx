@@ -3,16 +3,13 @@ import MapView, { Marker, Polyline } from 'react-native-maps';
 import { StatusBar, StyleSheet, View } from 'react-native';
 import { Point, points } from './cityselect';
 import { TextInput } from 'react-native';
+import GooglePlacesInput from "./searchbar";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   return ( 
     <View style={{paddingTop: StatusBar.currentHeight}}>
-      <TextInput
-        value={searchTerm}
-        onChangeText={setSearchTerm}
-        placeholder="Recherchez une adresse"
-      />
+        <GooglePlacesInput></GooglePlacesInput>
     <MapView
       style={styles.map}
       initialRegion={{
