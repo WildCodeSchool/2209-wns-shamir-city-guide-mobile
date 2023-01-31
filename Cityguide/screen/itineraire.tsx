@@ -1,6 +1,8 @@
 import React from 'react';
+import { View } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
+import Cityselect from './cityselect';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyD8kaYmqkEw9DMhpbtqnIe9Qk7PCQSb3R4';
 
@@ -12,24 +14,30 @@ const Itineraire = () => {
     longitudeDelta: 0.0421
   };
 
-  const origin = { latitude: 47.24870913135022, longitude: -1.6170062140814687 };
-  const destination = { latitude: 47.21712097938095, longitude: -1.5555514403891306 };
+  const origin = { latitude: 47.2166797993493, longitude: -1.548894740675771 }; 
+  const waypoint = { latitude: 47.21331196578812, longitude: -1.5645261152044012 };  
+  const destination = { latitude: 47.22036113247877, longitude: -1.5476538888444817 };
 
   return (
+    <View style={{paddingTop: 40}}>
+      <Cityselect />
     <MapView
       style={{ flex: 1 }}
       initialRegion={region}
     >
       <Marker coordinate={origin} />
       <Marker coordinate={destination} />
+      <Marker coordinate={waypoint} />
       <MapViewDirections
         origin={origin}
+        waypoints={[waypoint]}
         destination={destination}
         apikey={GOOGLE_MAPS_APIKEY}
         strokeWidth={3}
         strokeColor="hotpink"
       />
     </MapView>
+    </View>
   );
 };
 
