@@ -1,7 +1,6 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "./screen/home";
 import MapContainer from "./screen/mapContainer";
 import Itineraire from "./screen/itineraire";
 import ConnectScreen from "./screen/connectscreen";
@@ -13,7 +12,6 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator>
       <Tab.Screen name="Connect" component={ConnectScreen} />
-        <Tab.Screen name="HOME" component={Home} />
         <Tab.Screen name="MAP" component={MapContainer} />
         <Tab.Screen name="ITINERAIRE" component={Itineraire} />
       </Tab.Navigator>

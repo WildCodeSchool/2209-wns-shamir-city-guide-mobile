@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import Cityselect from './cityselect';
@@ -19,11 +19,12 @@ const Itineraire = () => {
   const destination = { latitude: 47.22036113247877, longitude: -1.5476538888444817 };
 
   return (
-    <View style={{paddingTop: 40}}>
+    <View style={{paddingTop: 10}}>
       <Cityselect />
     <MapView
-      style={{ flex: 1 }}
+      style={ styles.map}
       initialRegion={region}
+      
     >
       <Marker coordinate={origin} />
       <Marker coordinate={destination} />
@@ -40,6 +41,15 @@ const Itineraire = () => {
     </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+});
 
 export default Itineraire;
 
