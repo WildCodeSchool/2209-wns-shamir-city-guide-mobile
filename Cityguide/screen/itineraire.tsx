@@ -22,8 +22,9 @@ const Itineraire = () => {
     <View style={{paddingTop: 40}}>
       <Cityselect />
     <MapView
-      style={{ flex: 1 }}
+      style={{ flex: 1, minHeight: 300 }}
       initialRegion={region}
+      
     >
       <Marker coordinate={origin} />
       <Marker coordinate={destination} />
