@@ -33,8 +33,8 @@ class MapContainer extends React.Component<{}, State> {
       region: {
         latitude: data.latitude,
         longitude: data.longitude,
-        latitudeDelta: 0.003,
-        longitudeDelta: 0.003,
+        latitudeDelta: 0.1,
+        longitudeDelta: 0.1,
       },
     });
   };
@@ -44,8 +44,8 @@ class MapContainer extends React.Component<{}, State> {
       region: {
         latitude: loc.lat,
         longitude: loc.lng,
-        latitudeDelta: 0.003,
-        longitudeDelta: 0.003,
+        latitudeDelta: 0.1,
+        longitudeDelta: 0.1,
       },
     });
   };

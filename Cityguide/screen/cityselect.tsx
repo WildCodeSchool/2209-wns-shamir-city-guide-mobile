@@ -1,4 +1,4 @@
-import {Picker } from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 import React, { useState } from 'react';
 
 export default function Cityselect() {
