@@ -10,8 +10,8 @@ const Itineraire = () => {
   const region = {
     latitude: 47.21829365748452,
     longitude: -1.5522667227281854,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421
+    latitudeDelta: 0.150,
+    longitudeDelta: 0.150
   };
 
   const origin = { latitude: 47.2166797993493, longitude: -1.548894740675771 }; 
@@ -19,13 +19,12 @@ const Itineraire = () => {
   const destination = { latitude: 47.22036113247877, longitude: -1.5476538888444817 };
 
   return (
-    <View style={{paddingTop: 10}}>
+    <View style={{paddingTop: 5}}>
       <Cityselect />
     <MapView
       style={ styles.map}
-      initialRegion={region}
-      
-    >
+      initialRegion={region}      
+          >
       <Marker coordinate={origin} />
       <Marker coordinate={destination} />
       <Marker coordinate={waypoint} />

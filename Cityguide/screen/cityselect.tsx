@@ -3,12 +3,11 @@ import React, { useState } from 'react';
 
 export default function Cityselect() {
 const cities = [
-    { label: 'New York', value: 'New York' },
-    { label: 'London', value: 'London' },
-    { label: 'Paris', value: 'Paris' }
+    { label: 'Nantes', value: 'Nantes', latitude: 47.21829365748452, longitude: -1.5522667227281854 },
+    { label: 'Paris', value: 'Paris' , latitude: 48.8567036645077, longitude: 2.3487513138297285}
   ];
   
-  const [selectedCity, setSelectedCity] = useState<string | undefined>(
+  const [selectedCity, setSelectedCity] = useState<any | undefined>(
     cities[0].value
   );
   
@@ -18,7 +17,7 @@ const cities = [
 
   return (
 <Picker
-  style={{ height: 50, width: '100%' }}
+  style={{ height: 50, width: '50%' }}
   selectedValue={selectedCity}
   onValueChange={(itemValue: string, itemIndex: any) => handleCityChange(itemValue)}
 >

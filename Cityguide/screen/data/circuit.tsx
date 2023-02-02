@@ -10,4 +10,5 @@ const waypoint = { latitude: 47.21331196578812, longitude: -1.5645261152044012 }
 
 };
 
+
 export default Circuit1;
