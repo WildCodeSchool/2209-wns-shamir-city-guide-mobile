@@ -2,13 +2,13 @@ import React from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
-type StackParamList = {
+type StackTypeList = {
   Login: undefined;
   Register: undefined;
 };
 
 const ConnectScreen = () => {
-  const navigation = useNavigation<NavigationProp<StackParamList>>();
+  const navigation = useNavigation<NavigationProp<StackTypeList>>();
   return (
     <View style={styles.container}>
       <Image
