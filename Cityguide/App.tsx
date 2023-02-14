@@ -20,7 +20,7 @@ export default function App() {
         <Tab.Screen name="ITINERAIRE" component={Itineraire} />
       </Tab.Navigator> */}
       <Stack.Navigator>
-      <Stack.Screen name="connect" component={ConnectScreen} />
+      <Stack.Screen name="CityGuide" component={ConnectScreen} />
         <Stack.Screen name="Register" component={RegisterPage} />
         <Stack.Screen name="Login" component={LoginPage} />
       </Stack.Navigator>
