@@ -1,9 +1,35 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigation = useNavigation();
+
+  const handleLogin = () => {
+    fetch('', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    })
+    .then(response => {
+      if (response.ok) {
+        // L'utilisateur est authentifié
+        navigation.navigate('Itineraire');
+      } else {
+        // L'utilisateur n'est pas authentifié
+        alert('Nom d\'utilisateur ou mot de passe incorrect.');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Une erreur est survenue lors de la connexion. Veuillez réessayer plus tard.');
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -27,7 +53,7 @@ const LoginPage: React.FC = () => {
         autoComplete="password"
         textContentType="password"
       />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Connexion</Text>
       </TouchableOpacity>
     </View>

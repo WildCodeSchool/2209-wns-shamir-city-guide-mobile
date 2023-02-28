@@ -6,6 +6,26 @@ const RegisterPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleSubmit = () => {
+    fetch('', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+    })
+      .then(response => {
+        // Traiter la réponse du backend
+      })
+      .catch(error => {
+        // Gérer l'erreur
+      });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Inscription</Text>
@@ -28,7 +48,7 @@ const RegisterPage: React.FC = () => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>S'inscrire</Text>
       </TouchableOpacity>
     </View>
