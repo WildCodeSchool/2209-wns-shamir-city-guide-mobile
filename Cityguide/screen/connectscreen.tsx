@@ -1,7 +1,14 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+
+type StackTypeList = {
+  Login: undefined;
+  Register: undefined;
+};
 
 const ConnectScreen = () => {
+  const navigation = useNavigation<NavigationProp<StackTypeList>>();
   return (
     <View style={styles.container}>
       <Image
@@ -9,10 +16,10 @@ const ConnectScreen = () => {
         style={styles.backgroundImage}
       />
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
           <Text style={styles.buttonText}>Log In</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Register')}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
       </View>

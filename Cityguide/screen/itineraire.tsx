@@ -3,8 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import Cityselect from './cityselect';
-
-const GOOGLE_MAPS_APIKEY = 'AIzaSyD8kaYmqkEw9DMhpbtqnIe9Qk7PCQSb3R4';
+import { GOOGLE_MAPS_APIKEY } from '../env.json';
 
 const Itineraire = () => {
   const region = {
