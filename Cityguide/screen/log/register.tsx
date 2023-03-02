@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
+import { TextInput, Button } from 'react-native-paper';
+import { useMutation, gql } from '@apollo/client';
 
 const RegisterPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const REGISTER_USER = gql`
+    mutation registerUser($username: String!, $email: String!, $password: String!) {
+      registerUser(username: $username, email: $email, password: $password) {
+        id
+        username
+        email
+      }
+    }
+  `;
+
+  const [registerUser] = useMutation(REGISTER_USER);
+
   const handleSubmit = () => {
-    fetch('', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-      }),
-    })
+    registerUser({ variables: { username, email, password } })
       .then(response => {
         // Traiter la réponse du backend
       })
@@ -28,29 +32,24 @@ const RegisterPage: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Inscription</Text>
+      <Text style={styles.title}>Register Page</Text>
       <TextInput
-        style={styles.input}
-        placeholder="Nom d'utilisateur"
+        label="Username"
         value={username}
-        onChangeText={setUsername}
+        onChangeText={text => setUsername(text)}
       />
       <TextInput
-        style={styles.input}
-        placeholder="Adresse e-mail"
+        label="Email"
         value={email}
-        onChangeText={setEmail}
+        onChangeText={text => setEmail(text)}
       />
       <TextInput
-        style={styles.input}
-        placeholder="Mot de passe"
+        label="Password"
         value={password}
-        onChangeText={setPassword}
         secureTextEntry
+        onChangeText={text => setPassword(text)}
       />
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>S'inscrire</Text>
-      </TouchableOpacity>
+      <Button onPress={handleSubmit}>Register</Button>
     </View>
   );
 };
@@ -58,31 +57,12 @@ const RegisterPage: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    alignItems: 'center',
   },
   title: {
     fontSize: 24,
-    marginBottom: 20,
-  },
-  input: {
-    width: '80%',
-    height: 40,
-    padding: 10,
-    marginBottom: 20,
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
-  },
-  button: {
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
+    marginBottom: 16,
   },
 });
 
