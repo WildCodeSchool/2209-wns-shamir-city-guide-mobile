@@ -17,6 +17,7 @@
     "@types/react-native-maps": "^0.24.2",
     "apollo-boost": "^0.4.9",
     "expo": "~47.0.12",
+    "expo-secure-store": "^12.1.1",
     "expo-status-bar": "~1.4.2",
     "graphql": "^15.8.0",
     "graphql-tag": "^2.12.6",
