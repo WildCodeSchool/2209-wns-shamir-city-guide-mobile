@@ -22,12 +22,14 @@ const RegisterPage: React.FC = () => {
 
   const handleSubmit = () => {
     registerUser({ variables: { username, email, password } })
-      .then(response => {
-        // Traiter la réponse du backend
-      })
-      .catch(error => {
-        // Gérer l'erreur
-      });
+  .then(response => {
+    const newUser = response.data.registerUser;
+    console.log(`User ${newUser.username} (${newUser.email}) registered with ID ${newUser.id}`);
+    // Afficher un message de confirmation ou rediriger l'utilisateur vers une autre page
+  })
+  .catch(error => {
+    // Gérer l'erreur
+  });
   };
 
   return (

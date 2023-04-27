@@ -14,16 +14,16 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      {/* <Tab.Navigator>
       <Tab.Screen name="Connect" component={ConnectScreen} />
         <Tab.Screen name="MAP" component={MapContainer} />
         <Tab.Screen name="ITINERAIRE" component={Itineraire} />
-      </Tab.Navigator>
-      {/* <Stack.Navigator>
+      </Tab.Navigator> */}
+      <Stack.Navigator>
       <Stack.Screen name="CityGuide" component={ConnectScreen} />
         <Stack.Screen name="Register" component={RegisterPage} />
         <Stack.Screen name="Login" component={LoginPage} />
-      </Stack.Navigator> */}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
