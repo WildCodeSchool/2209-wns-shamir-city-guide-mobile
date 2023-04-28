@@ -13,6 +13,7 @@ import { ApolloClient } from "@apollo/client/core/ApolloClient";
 import { InMemoryCache } from "@apollo/client/cache/inmemory/inMemoryCache";
 import {setContext} from "@apollo/client/link/context";
 import * as SecureStore from "expo-secure-store";
+import { ApolloProvider } from "@apollo/client/react/context/ApolloProvider";
 
 const { manifest } = Constants;
 const Tab = createBottomTabNavigator();
@@ -45,6 +46,7 @@ const appName: string = 'mobile-builder';
 export default function App() {
   return (
     <NavigationContainer>
+      <ApolloProvider client={client}>
       {/* <Tab.Navigator>
       <Tab.Screen name="Connect" component={ConnectScreen} />
         <Tab.Screen name="MAP" component={MapContainer} />
@@ -55,6 +57,7 @@ export default function App() {
         <Stack.Screen name="Register" component={RegisterPage} />
         <Stack.Screen name="Login" component={LoginPage} />
       </Stack.Navigator>
+      </ApolloProvider>
     </NavigationContainer>
   );
 }
