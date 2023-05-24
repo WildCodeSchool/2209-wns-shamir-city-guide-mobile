@@ -1,50 +1,26 @@
 import React from 'react';
-import MapView, { Marker, Polyline } from 'react-native-maps';
-import { StyleSheet, View } from 'react-native';
-import { Point, points } from './screen/cityselect';
 
-export default function App({  }:{
-// points:object[]
-}) {
-  console.log(points)
+
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+import HomePage from './src/screens/HomePage';
+
+
+const apolloClient  = new ApolloClient({
+  uri: `http://${process.env.IPV4_ADDRESS}:4000/graphql`, // Remplacez par l'URL de votre serveur Apollo Server
+  cache: new InMemoryCache({
+    addTypename: false
+  }),
+});
+
+
+const App = () => {
   return (
-  <MapView
-  style={styles.map}
-  initialRegion={{
-    latitude: 37.78825,
-    longitude: -122.4324,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421,
-  }}
-  >
-  {points.map((point: Point) => (
-    <Marker
-      key={point.id}
-      coordinate={{
-        latitude: point.latitude,
-        longitude: point.longitude,
-      }}
-      title={point.title}
-      description={point.description}
-    />
-  ))}
-  <Polyline
-    coordinates={points.map((point: { latitude: any; longitude: any; }) => ({
-        latitude: point.latitude,
-        longitude: point.longitude
-    }))}
-    strokeColor="#000"
-    strokeWidth={3}
-  />
-  </MapView>
+    <ApolloProvider client={apolloClient }>
+      <HomePage />
+    </ApolloProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
+
