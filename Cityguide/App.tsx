@@ -1,12 +1,15 @@
 import React from 'react';
-
-
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
-import HomePage from './src/screens/HomePage';
+import Router from './src/Router';
+import Constants from "expo-constants";
 
+
+const { manifest } = Constants;
+const uri = `http://${manifest?.debuggerHost?.split(':').shift()}${process.env.SERVEUR_URI_CHUNK}`;
+console.log("Uri =>", uri);
 
 const apolloClient  = new ApolloClient({
-  uri: `http://${process.env.IPV4_ADDRESS}:4000/graphql`, // Remplacez par l'URL de votre serveur Apollo Server
+  uri: uri, // Remplacez par l'URL de votre serveur Apollo Server
   cache: new InMemoryCache({
     addTypename: false
   }),
@@ -15,12 +18,10 @@ const apolloClient  = new ApolloClient({
 
 const App = () => {
   return (
-    <ApolloProvider client={apolloClient }>
-      <HomePage />
+    <ApolloProvider client={apolloClient}>
+      <Router />
     </ApolloProvider>
   );
 }
 
 export default App;
-
-
