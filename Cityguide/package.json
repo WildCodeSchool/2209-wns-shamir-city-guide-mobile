@@ -12,6 +12,7 @@
     "@apollo/client": "^3.7.14",
     "@react-navigation/bottom-tabs": "^6.5.3",
     "@react-navigation/native": "^6.1.2",
+    "@react-navigation/stack": "^6.3.16",
     "@types/react-native-maps": "^0.24.2",
     "expo": "~47.0.12",
     "expo-status-bar": "~1.4.2",
