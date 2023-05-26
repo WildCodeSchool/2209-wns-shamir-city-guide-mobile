@@ -68,3 +68,38 @@ export const enum DefaultIconsColors {
 }
 
 export const tokenName = "city-guid_token";
+
+// ICONS
+export const tagsIconsName: { [key: string]: string } = {
+    "LocalBarRounded": 'local-bar',
+    "WavesOutlined": 'waves',
+    "LocalCafeRounded": 'local-cafe',
+    "LocalMoviesRounded": 'local-movies',
+    "AudiotrackRounded": 'audiotrack',
+    "CollectionsRounded": 'collections',
+    "YardOutlined": 'grass',
+    "AccountBalanceRounded": 'account-balance',
+    "DirectionsWalkOutlined": 'directions-walk',
+    "RestaurantRounded": 'restaurant',
+    "ShoppingCartOutlined": 'shopping-cart',
+    "SportsKabaddiRounded": 'sports-kabaddi',
+    "TheaterComedyRounded": 'theater-comedy'
+}
+
+export const categoriesIconsName: { [key: string]: string } = {
+  "ChangeHistoryOutlined": 'change-history',
+  "TheaterComedyOutlined": 'theater-comedy',
+  "TableRestaurantOutlined": 'restaurant',
+  "EmojiNatureOutlined": 'emoji-nature',
+  "SportsHandballOutlined": 'sports-handball'
+}
+
+export const typesIconsName: { [key: string]: string } = {
+  "PaletteOutlined": 'palette',
+  "AttractionsOutlined": 'attractions',
+  "EventOutlined": 'event',
+  "HistoryEduOutlined": 'history-edu',
+  "SpaOutlined": 'spa',
+  "LocalDiningOutlined": "local-dining",
+  "NightlifeOutlined": "nightlife"
+}

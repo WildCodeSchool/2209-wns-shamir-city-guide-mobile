@@ -3,10 +3,6 @@ import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Colors } from "../utils/constants"
 
-// type StackTypeList = {
-//   Login: undefined;
-//   Register: undefined;
-// };
 
 const Home: React.FC = () => {
   const navigation = useNavigation();
@@ -34,7 +30,7 @@ const Home: React.FC = () => {
       <TouchableOpacity onPress={() => navigation.navigate("Se connecter" as never)}>
         <Text style={styles.buttonText}>Se connecter</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Visiter le site" as never)}>
+      <TouchableOpacity onPress={() => navigation.navigate("DisplayIcons" as never)}>
         <Text style={styles.buttonText}>Visiter le site</Text>
       </TouchableOpacity>
       </View> 
