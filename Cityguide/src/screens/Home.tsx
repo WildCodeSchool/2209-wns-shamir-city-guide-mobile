@@ -24,7 +24,7 @@ const Home: React.FC = () => {
       </View>
     );
   }
-  
+
   return (
     <View>
       <Text>Bienvenue sur City Guid</Text>
@@ -39,6 +39,9 @@ const Home: React.FC = () => {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Se connecter" as never)}>
         <Text>Se connecter</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Globalmap" as never)}>
+        <Text>Continuer la visite</Text>
       </TouchableOpacity>
     </View>
   );
