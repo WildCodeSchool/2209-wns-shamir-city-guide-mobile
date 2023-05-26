@@ -7,6 +7,7 @@ import Constants from "expo-constants";
 const { manifest } = Constants;
 const uri = `http://${manifest?.debuggerHost?.split(':').shift()}${process.env.SERVEUR_URI_CHUNK}`;
 
+
 const apolloClient  = new ApolloClient({
   uri: uri, // Remplacez par l'URL de votre serveur Apollo Server
   cache: new InMemoryCache({
