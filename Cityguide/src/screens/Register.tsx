@@ -108,7 +108,7 @@ const Register: React.FC = () => {
         )}
       </Formik>
       {openErrorModal && <ErrorModal message={serverErrorMsg} onClose={handleModalClose} />}
-      {loading && <Loader />}
+      {loading && <Loader color={Colors.PURPLE} />}
     </View>
   );
 };
