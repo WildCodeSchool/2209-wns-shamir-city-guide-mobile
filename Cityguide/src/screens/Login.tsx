@@ -33,7 +33,7 @@ const Login: React.FC = () => {
   ] = useMutation(AUTHENTICATION_LOGIN, {
     onCompleted(data: any) {
       setLoading(false);
-      navigation.navigate("Accueil" as never);
+      navigation.navigate("DisplayIcons" as never);
     },
     onError(error: ApolloError) {
       setLoading(false);
@@ -100,7 +100,6 @@ const Login: React.FC = () => {
               <View style={styles.loader}>
                 {loading && <Loader color={Colors.WHITE} />}
               </View>
-              
               <Text style={styles.buttonText}>Se connecter</Text>
             </Pressable>
 

@@ -10,7 +10,7 @@ interface IProps {
 const ThemedButton = ({ title, onPress }: IProps) => {
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: theme.buttonColor }]}
+      style={[styles.button]}
       onPress={onPress}
     >
       <Text style={[styles.buttonText, { color: theme.buttonTextColor }]}>
@@ -22,13 +22,14 @@ const ThemedButton = ({ title, onPress }: IProps) => {
 
 const styles = StyleSheet.create({
   button: {
-    // Styles par défaut du bouton
-    // Utilisez les variables de thème pour définir les couleurs par défaut
-    borderRadius: 5,
-    padding: 10,
+    backgroundColor: theme.buttonColor,
+    width: 100,
+    borderRadius: 20,
+    padding: 10
   },
   buttonText: {
-    // Styles par défaut du texte du bouton
+    fontSize: 15,
+    textAlign: 'center'
   },
 });
 

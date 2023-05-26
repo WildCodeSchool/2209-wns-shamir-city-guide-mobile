@@ -98,6 +98,9 @@ const Register: React.FC = () => {
               disabled={!isValid}
               style={styles.button}
             >
+              <View style={styles.loader}>
+                {loading && <Loader color={Colors.WHITE} />}
+              </View>
               <Text style={styles.buttonText}>S'enregistrer</Text>
             </Pressable>
 
@@ -107,8 +110,8 @@ const Register: React.FC = () => {
           </>
         )}
       </Formik>
+
       {openErrorModal && <ErrorModal message={serverErrorMsg} onClose={handleModalClose} />}
-      {loading && <Loader color={Colors.PURPLE} />}
     </View>
   );
 };
@@ -138,15 +141,17 @@ const styles = StyleSheet.create({
     borderColor: Colors.BLUELIGHT,
   },
   button: {
-    width: '50%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '60%',
     height: 40,
     backgroundColor: Colors.PURPLE,
     borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: 10
   },
   buttonText: {
+    flex: 3,
     color: '#fff',
     fontSize: 18,
   },
@@ -159,6 +164,9 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     marginBottom: 12,
+  },
+  loader: {
+    flex: 1
   }
 });
 

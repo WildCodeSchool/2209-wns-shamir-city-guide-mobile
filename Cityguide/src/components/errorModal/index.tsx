@@ -36,16 +36,16 @@ const styles = StyleSheet.create ({
   },
   popup: {
     backgroundColor: 'white',
-    padding: 20,
+    padding: 30,
+    marginLeft: 30,
+    marginRight: 30,
     borderRadius: 8,
     alignItems: 'center',
   },
   message: {
-    marginBottom: 10,
+    fontSize: 15,
+    marginBottom: 20,
     textAlign: 'center',
-  },
-  closeButton: {
-    backgroundColor: Colors.PURPLE
   }
 });
 
